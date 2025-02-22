@@ -1,0 +1,43 @@
+#+title: Level2
+
+* Links
+|      |         Decimal | Binary                              |
+|------+-----------------+-------------------------------------|
+| B1   |                 |                                     |
+| Ip   |  192.168.53.222 | 11000000 10101000 00110101 11011110 |
+| Mask |                 |                                     |
+|      |                 |                                     |
+| A1   |                 |                                     |
+| IP   |                 |                                     |
+| Mask | 255.255.255.224 | 11111111 11111111 11111111 11100000 |
+|      | /27             | 11000000 10101000 00110101 11000000 |
+|      |                 | 192.168.53.192                      |
+
+Ideen:
+- Ip von B1 muss in network von A1 liegen
+  - Subnet von B1 mit Mask von A1 ist 198.168.53.192
+- wir wollen das beide Hosts im selben Netzwerk liegen
+- deshalb geben wir die gleich subnet mask an
+- dann müssen wir noch darauf achten, das sie im gleichen Netzwerk drin liegen [[id:a25ea0c5-8de2-4cd0-9e67-c916efbdee6b][(Division into subnets]])
+  - deswegen berechen wir den Network Part von der B1 IP addresse, damit wir wissen, wo die IP von A1 liegen kann -> 192.168.53.192
+    - sie muss wegen [[id:2ceec979-1f1a-4fcf-b346-fa24ca32974b][Broadcast and Network Addresses]] im Bereich  192.168.53.193 - 192.168.53.254 liegen
+
+* Rechts
+
+|      | Decimal         | Binary                              |
+|------+-----------------+-------------------------------------|
+| B1   |                 |                                     |
+| Ip   |                 |                                     |
+| Mask | /30             | 11111111 11111111 11111111 11111100 |
+|      |                 |                                     |
+| A1   |                 |                                     |
+| IP   |                 |                                     |
+| Mask | 255.255.255.252 | 11111111 11111111 11111111 11111100 |
+|      | = /30           |                                     |
+|      |                 | 192.168.53.192                      |
+
+- hier haben wir die gleiche Subnet mask vorgegeben, nur einmal in Decimal und einmal in [[id:aeebc00e-c1e6-499a-a7bf-b910d3bdf78a][CIDR notation]]
+- diese mask lässt für Host Ports nur 4 Möglichkeiten
+- außerdem kann diese Mask mit 256 / 4 = 64 subnets korrespondieren
+  - also müssen die Host Parts (die letzten 3 bits) der IPAdressen im gleichen Breich 4*n < ip < 4*n+3 liegen
+  - der Rest muss gleich sein

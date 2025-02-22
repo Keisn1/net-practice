@@ -1,0 +1,87 @@
+:PROPERTIES:
+:GPTEL_MODEL: gpt-4o
+:GPTEL_BACKEND: ChatGPT
+:GPTEL_SYSTEM: You are a large language model living in Emacs and a helpful assistant. Try to avoid long answers.
+:GPTEL_BOUNDS: ((840 . 989) (1085 . 1430) (1445 . 1629) (1632 . 1745) (1747 . 1873) (1874 . 2623) (2630 . 2687) (2883 . 2892) (2899 . 3033) (3040 . 3110) (3113 . 3312) (3447 . 4677) (4711 . 5171) (5289 . 5917) (5962 . 6064) (6141 . 6250) (6251 . 6483) (6584 . 7707) (7723 . 8231) (8301 . 8794) (8948 . 9401) (9475 . 9959))
+:END:
+#+title: Level1
+* What i see
+- 4 interfaces A1 to D1
+- 4 clients A to D
+- Every interface has a IPaddress
+  - A1, B1: start with 104
+  - C1, D1: start with 211
+  - then they are different
+- They all have a Mask
+- connections exist between:
+  - A and B
+  - C and D
+
+* Routing
+** Explanation how routers work: If i have the division into four subnets. How does a router determine the right subnet?
+
+Here's a step-by-step process:
+
+1. *Subnet Mask:* The subnet mask defines the size of each subnet and distinguishes the network bits from the host bits.
+   - Example with a subnet mask of 255.255.255.192 (/26).
+
+2. *IP Address:* Let's say you have an IP address of 192.168.1.34.
+
+3. *Subnet Calculation:*
+   - Convert the IP address and subnet mask to binary.
+     - 192.168.1.34 -> 11000000.10101000.00000001.00100010
+     - 255.255.255.192 -> 11111111.11111111.11111111.11000000
+
+4. *Network Part:* Perform a bitwise AND operation on the IP address and subnet mask to identify the network.
+   - IP address (binary) & Subnet mask (binary)
+   - 11000000.10101000.00000001.00100010 & 11111111.11111111.11111111.11000000
+   - Resulting network part: 11000000.10101000.00000001.00000000 (192.168.1.0/26)
+
+5. *Router Decision:* The router uses the calculated network part to match with its routing table entries to determine the correct subnet and forward the packet to the appropriate destination within that subnet.
+
+In this example, 192.168.1.34 belongs to the subnet 192.168.1.0/26 (specific subnet within an Iv4 network), and the router directs the traffic accordingly.
+- 192.168.1.0/26
+  - 192.168.1.0 is starting IP address of the subnet
+  - /26 specifies that th efirst 26 bits of the address are used for the network prefix
+
+  - The "/26" in "192.168.1.0/26" specifies how the IP address is divided into the network and host portions. It informs devices and network administrators how the subnet is structured.
+  - *Network Portion*: The "/26" signifies that the first 26 bits out of the 32 bits in the IP address represent the network portion.
+  - *Host Portion*: The remaining bits (32 - 26 = 6 bits) represent the host portion, which allows for individual device addresses within the subnet.
+  - The primary reason for mentioning "/26" is to clarify how the network is subnetted. It helps devices determine:
+    1. *Network Boundary*: What addresses belong to the network.
+    2. *Subnetwork Size*: The number of possible hosts. For a /26 subnet, there are 64 addresses (2^6), but only 62 are usable for devices because one is reserved for the network address and another for the broadcast address.
+    3. *Routing*: How data should be routed to destinations within and outside the subnet.
+
+- */26*: This alone refers to the subnet mask length without specifying a particular network address. It tells you that the first 26 bits of any given IP are used for the network part, leaving 6 bits for the host part.
+
+** what is a subnet mask. Explain to a newby, use bullet points
+- *Subnet Mask Purpose:* Helps differentiate the network part of an IP address from the host part.
+- *Format:* Written like an IP address, e.g., 255.255.255.0.
+- *Function:*
+  - *255:* Indicates that the corresponding part of the IP address belongs to the network.
+  - *0:* Indicates that the corresponding part of the IP address identifies the host within that network.
+- *Example:*
+  - *IP Address:* 192.168.1.10
+  - *Subnet Mask:* 255.255.255.0
+  - *Meaning:* 192.168.1 is the network part, and 10 is the host part.
+- *Analogy:* Think of a street address where the street name is the network and the house number is the host.
+
+
+** Examples
+
+Sure, here are some examples:
+
+1. *Subnet Mask: 255.255.255.192*
+   - IP Range: 192.168.1.0 to 192.168.1.63
+   - Meaning: Divides into four subnets with 62 hosts each.
+
+2. *Subnet Mask: 255.255.255.224*
+   - IP Range: 192.168.1.0 to 192.168.1.31
+   - Meaning: Divides into eight subnets with 30 hosts each.
+
+3. *Subnet Mask: 255.255.255.240*
+   - IP Range: 192.168.1.0 to 192.168.1.15
+   - Meaning: Divides into sixteen subnets with 14 hosts each.
+
+In each case, the network has fewer hosts but more subnets.
+

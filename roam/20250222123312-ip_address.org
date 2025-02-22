@@ -1,0 +1,31 @@
+:PROPERTIES:
+:ID:       501f24ff-9d35-41f8-911b-832c89114c51
+:END:
+#+title: IP address
+#+date: [2025-02-22 Sat 12:33]
+#+startup: overview
+
+A unique identifier assigned to each device connected to a network.
+two main versions:
+- *IPv4*: Uses a 32-bit address format, typically represented as four decimal numbers separated by dots (e.g., 192.168.1.1).
+- *IPv6*: Uses a 128-bit address format, represented as eight groups of hexadecimal numbers separated by colons (e.g., 2001:0db8:85a3:0000:0000:8a2e:0370:7334).
+
+- An IP address consists of four octets (for IPv4).
+- Octets are separated by periods (e.g., 192.168.0.1).
+- Each octet ranges from 0 to 255.
+
+- Represents network and host identifiers.
+  - [[id:964af5c1-3ed9-4a84-9c59-523e297d3fee][Network Identifier]]:
+    - Part of the IP address that specifies the specific network on which a device is located
+  - [[id:9b93a3ab-a3f3-467c-9908-69487ab8639c][Host Identifier]]:
+    - Part of the IP address that specifies the specific device within that [[id:8bad3b36-2ee6-4824-acc6-edd51b19724e][network]]
+
+
+
+* Subnetting
+- *Network Mask*: Determines how many bits are used for the network and host parts
+  - For =255.255.255.0= (or =/24=), the first 24 bits are for the network, and the last 8 bits are for hosts
+    - The =/24= notation represents the subnet mask in /CIDR/ ([[https://aws.amazon.com/what-is/cidr/#:~:text=Classless%20Inter-Domain%20Routing%20(CIDR)%20allows%20network%20routers%20to,specified%20by%20the%20CIDR%20suffix.][Classless Inter-Domain Routing]]) format
+    - It means that the first 24 bits of the IP address are used for the network part, and the remaining 8 bits are used for host addresses
+    - In decimal form, this corresponds to a subnet mask of =255.255.255.0=
+  - *Example with Different Prefix*: An IP address =10.0.0.1/8= (where =8= denotes that the first 8 bits are the network part) has a network identifier of =10.0.0.0= and a host identifier of =0.0.0.1=

@@ -1,0 +1,17 @@
+:PROPERTIES:
+:ID:       8bad3b36-2ee6-4824-acc6-edd51b19724e
+:END:
+#+title: network
+#+date: [2025-02-22 Sat 12:37]
+#+startup: overview
+
+* Elements of a network
+- [[id:0525e701-1109-4bc5-9c32-4e143388ac78][Hosts]]: individual devices that receive and send data
+- *Routers*: Direct data between networks
+- *Switches*: Connect devices within the same network
+- *Firewalls*: Monitor and control incoming and outgoing network traffic
+- *Access Points*: Extend the wireless network
+- *Cables*: Physical connections for data transfer
+- *Modems*: Connect to the Internet
+
+* [[id:eba31583-df38-479d-bd81-00f4733bfd52][Subnets]]

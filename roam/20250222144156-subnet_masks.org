@@ -1,0 +1,34 @@
+:PROPERTIES:
+:ID:       aeebc00e-c1e6-499a-a7bf-b910d3bdf78a
+:END:
+#+title: Subnet Masks (CIDR notation)
+#+date: [2025-02-22 Sat 14:41]
+#+startup: overview
+
+Determines how many bits are used for the network and host parts
+
+* CIDR notation
+- *Classless Inter-Domain Routing* (CIDR) is a method of specifying IP addresses and their associated routing properties
+- standard method for describing IP address ranges and their associated network prefixes
+- It is often used to denote the subnet mask, such as /24 in IPv4, which equates to a subnet mask of 255.255.255.0
+
+- For =255.255.255.0= (or =/24=), the first 24 bits are for the network, and the last 8 bits are for hosts
+  - The =/24= notation represents the subnet mask in /CIDR/ format
+  - It means that the first 24 bits of the IP address are used for the network part, and the remaining 8 bits are used for host addresses
+  - In decimal form, this corresponds to a subnet mask of =255.255.255.0=
+- *Example with Different Prefix*: An IP address =10.0.0.1/8= (where =8= denotes that the first 8 bits are the network part) has a network identifier of =10.0.0.0= and a host identifier of =0.0.0.1=
+
+** network bits must be contiguous
+
+- In CIDR notation, the network bits must be contiguous
+- This means if any part of the subnet mask is not 255 while earlier parts are, the later part should not revert to 255.
+- Valid Example:
+  - 255.255.240.0 (/20)
+  - 11111111.11111111.11110000.00000000
+- Invalid Example:
+  - 255.240.255.0 (Not possible)
+  - 11111111.11110000.11111111.00000000 (Discontinuous; invalid)
+
+** invalid submasks
+- Routers and networking equipment adhere to CIDR standards, which require contiguous network bits to function correctly
+- Using a non-contiguous subnet mask can lead to unpredictable behavior, routing issues, and configuration errors

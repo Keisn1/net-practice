@@ -1,0 +1,99 @@
+:PROPERTIES:
+:ID:       87949d70-d0e9-4cfb-9024-da58c4bcdf58
+:END:
+#+title: Subnetting
+#+date: [2025-02-22 Sat 15:08]
+#+startup: overview
+
+- Subnetting is the process of dividing a network into smaller, more manageable sections
+- done via [[id:aeebc00e-c1e6-499a-a7bf-b910d3bdf78a][Subnet Masks (CIDR notation)]]
+
+* How subnetting works
+- The network part of the IP address identifies the overall network.
+- When data is sent from one device to another, network equipment use this part to quickly determine the general destination network
+  - Think of it like sorting mail by city before narrowing it down to individual street addresses
+- The host part of the IP address identifies the specific device within that network
+  - Once the data reaches the correct network, the host part is used to direct the data to the exact device intended, similar to how a postal worker delivers mail to the correct house on a street
+** Division into subnets
+- An IP address consists of four octets (for IPv4) xxx.xxx.xxx.xxx
+- given a "\ n" subnet where n > 24, 32 - n addresses for the host part
+  - 2*(n - 24) subnets
+    - each time that the last octect of IPv4 address has a bit set, where the bit is set in the mask, the Network part is changing
+    - there are 2*(n-24) different combinations of set bits in the last octet, that intersects with the set bits in the network mask
+
+*** example \26
+
+| 192.168.1.12 | 11000000 10101000 00000001 00001100 |
+| \26          | 11111111 11111111 11111111 11000000 |
+| AND          | 11000000 10101000 00000001 00000000 |
+|              |                                     |
+| NetworkPart  | 192.168.1.0                         |
+| HostPart     | 12                                  |
+
+| 192.168.1.127  | 11000000 10101000 00000001 01111111 |
+| \26            | 11111111 11111111 11111111 11000000 |
+| AND            | 11000000 10101000 00000001 01000000 |
+|                |                                     |
+| NetworkAdrress | 192.168.1.64                        |
+| HostPart       | 63                                  |
+
+
+| 192.168.1.132  | 11000000 10101000 00000001 10000100 |
+| \26            | 11111111 11111111 11111111 11000000 |
+| AND            | 11000000 10101000 00000001 10000000 |
+|                |                                     |
+| NetworkAdrress | 192.168.1.128                       |
+| HostPart       | 4                                   |
+
+| 192.168.1.192  | 11000000 10101000 00000001 11000000 |
+| \26            | 11111111 11111111 11111111 11000000 |
+| AND            | 11000000 10101000 00000001 11000000 |
+| NetworkAdrress | 192.168.1.192                       |
+| HostPart       | 0                                   |
+
+| 192.168.1.193  | 11000000 10101000 00000001 11000001 |
+| \26            | 11111111 11111111 11111111 11000000 |
+| AND            | 11000000 10101000 00000001 11000000 |
+| NetworkAdrress | 192.168.1.192                       |
+| HostPart       | 1                                   |
+
+| 192.168.1.255  | 11000000 10101000 00000001 11000001 |
+| \26            | 11111111 11111111 11111111 11000000 |
+| AND            | 11000000 10101000 00000001 11000000 |
+| NetworkAdrress | 192.168.1.192                       |
+| HostPart       | 63                               |
+
+*** example \24
+- one network 0-255 for the host part
+- A /24 subnet mask does not divide a network into smaller subnets; instead, it defines a single subnet by itself
+- With a /24 subnet mask, there are 24 bits used for the network portion and 8 bits for the host portion
+- This setup typically provides one subnet with 256 IP addresses, of which 254 are usable for hosts (after accounting for the network and broadcast addresses).
+- To divide a network into multiple subnets, you would normally use a subnet mask longer than /24 (e.g., /25, /26, etc.) to allocate additional bits to the network portion. However, with just a /24 mask, the network is simply treated as a single subnet.
+** Expanding networks
+* Purpose
+- *Efficient IP Address Use*:
+  - Subnetting allows for better utilization of IP addresses, preventing waste and allowing for more devices within networks
+- *Improved Network Performance*:
+  - By limiting broadcast domains, it reduces network congestion and improves overall performance
+- *Enhanced Security*:
+  - Subnets can isolate different network segments, adding a layer of security by controlling traffic flow between them
+- *Simplified Management*:
+  - Smaller, segmented networks are easier to manage and troubleshoot
+
+* How Subnetting is done
+1. *Determine Requirements*:
+   - Identify how many subnets are needed and how many devices (hosts) each subnet must support
+2. *Choose a Subnet Mask*:
+   - A subnet mask determines how an IP address is split into network and host portions
+   - Adjust the subnet mask to create the number of needed subnets while accommodating required hosts
+3. *Calculate Subnets*:
+   - In IPv4, use the subnet mask to break down the address
+     - For example, changing the mask from /24 (255.255.255.0) to /26 (255.255.255.192) creates four subnets
+     - The number of subnets can be calculated as 2^(number of new bits allocated for subnetting)
+4. *Assign Subnet Addresses*:
+   - Allocate subnet addresses within the available IP range
+   - Each subnet will have a range of IP addresses it can use
+5. *Plan for Broadcast and Network Addresses*:
+   - Each subnet needs one address for the network identifier and one for the broadcast address, which reduces usable host addresses by 2.
+6. *Verify and Deploy*:
+   - Check your calculations to ensure they fit within the original network size, then assign addresses to devices within the subnets.

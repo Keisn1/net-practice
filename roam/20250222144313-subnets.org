@@ -1,0 +1,38 @@
+:PROPERTIES:
+:ID:       eba31583-df38-479d-bd81-00f4733bfd52
+:END:
+#+title: Subnets
+#+date: [2025-02-22 Sat 14:43]
+#+startup: overview
+
+- logically segmented portion of a larger network (like a neighborhood)
+* Subnetting
+- Subnetting is the process of dividing a network into smaller, more manageable sections
+** Purpose
+- *Efficient IP Address Use*:
+  - Subnetting allows for better utilization of IP addresses, preventing waste and allowing for more devices within networks
+- *Improved Network Performance*:
+  - By limiting broadcast domains, it reduces network congestion and improves overall performance
+- *Enhanced Security*:
+  - Subnets can isolate different network segments, adding a layer of security by controlling traffic flow between them
+- *Simplified Management*:
+  - Smaller, segmented networks are easier to manage and troubleshoot
+
+** How Subnetting is done
+1. *Determine Requirements*:
+   - Identify how many subnets are needed and how many devices (hosts) each subnet must support
+2. *Choose a Subnet Mask*:
+   - A subnet mask determines how an IP address is split into network and host portions
+   - Adjust the subnet mask to create the number of needed subnets while accommodating required hosts
+3. *Calculate Subnets*:
+   - In IPv4, use the subnet mask to break down the address
+     - For example, changing the mask from /24 (255.255.255.0) to /26 (255.255.255.192) creates four subnets
+     - The number of subnets can be calculated as 2^(number of new bits allocated for subnetting)
+4. *Assign Subnet Addresses*:
+   - Allocate subnet addresses within the available IP range
+   - Each subnet will have a range of IP addresses it can use
+5. *Plan for Broadcast and Network Addresses*:
+   - Each subnet needs one address for the network identifier and one for the broadcast address, which reduces usable host addresses by 2.
+6. *Verify and Deploy*:
+   - Check your calculations to ensure they fit within the original network size, then assign addresses to devices within the subnets.
+* [[id:aeebc00e-c1e6-499a-a7bf-b910d3bdf78a][Subnet Masks (CIDR notation)]]

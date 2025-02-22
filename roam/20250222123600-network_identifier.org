@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:       964af5c1-3ed9-4a84-9c59-523e297d3fee
+:END:
+#+title: Network Identifier (Part)
+#+date: [2025-02-22 Sat 12:36]
+#+startup: overview
+
+Part of the IP address that specifies the specific network on which a device is located
+
+- *Definition*:
+  - Identifies the specific network to which an IP address belongs.
+- *Purpose*:
+  - Defines the network segment
+  - Ensures devices within the same network can communicate efficiently.
+- *Subnet Mask Role*:
+  - Helps differentiate the network and host portions of the IP address
+- *Example*:
+  - In the IP address =192.168.1.10= with a subnet mask =255.255.255.0=, the network identifier is =192.168.1.0=
+- *Analogy*:
+  - Like a street name that groups houses in the same neighborhood.

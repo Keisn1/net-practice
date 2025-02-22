@@ -1,0 +1,16 @@
+:PROPERTIES:
+:ID:       0525e701-1109-4bc5-9c32-4e143388ac78
+:END:
+#+title: Host
+#+date: [2025-02-22 Sat 12:32]
+#+startup: overview
+
+
+Hosts within a [[id:8bad3b36-2ee6-4824-acc6-edd51b19724e][network]] are individual devices that receive and send data. These can be:
+- Computers
+- Smartphones
+- Printers
+- Servers
+- IoT Devices
+
+Each host has a unique [[id:501f24ff-9d35-41f8-911b-832c89114c51][IP address]] within the network.

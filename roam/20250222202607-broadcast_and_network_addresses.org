@@ -1,0 +1,23 @@
+:PROPERTIES:
+:ID:       2ceec979-1f1a-4fcf-b346-fa24ca32974b
+:END:
+#+title: Broadcast and Network Addresses
+#+date: [2025-02-22 Sat 20:26]
+#+startup: overview
+
+
+Broadcast and network addresses serve specific purposes within a subnet:
+
+1. *Network Address*:
+   - The network address identifies a specific subnet within a larger network.
+   - It is derived by setting all the host bits in the address to zero.
+   - It represents the starting address of a subnet and cannot be assigned to any device.
+   - Example: In the subnet 192.168.1.0/24, the network address is 192.168.1.0.
+
+2. *Broadcast Address*:
+   - The broadcast address is used to send data to all devices within a subnet.
+   - It is derived by setting all the host bits in the address to one.
+   - Network devices use this address to communicate with all hosts in the subnet simultaneously.
+   - Example: In the subnet 192.168.1.0/24, the broadcast address is 192.168.1.255.
+
+Both network and broadcast addresses help in managing and directing network traffic efficiently, ensuring that data is sent to the right destinations within a subnet.

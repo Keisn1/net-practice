@@ -1,0 +1,16 @@
+:PROPERTIES:
+:ID:       9b93a3ab-a3f3-467c-9908-69487ab8639c
+:END:
+#+title: Host Identifier (Part)
+#+date: [2025-02-22 Sat 12:36]
+#+startup: overview
+
+- *Purpose*:
+  - Uniquely identifies a device within the network.
+  - Distinguishes between different devices (computers, phones, etc.) on the same network
+- *Example*:
+  - In the IP address =192.168.1.10= with a subnet mask =255.255.255.0=, the host identifier is =10=.
+- *Uniqueness*:
+  - Must be unique within its network to avoid conflicts.
+- *Analogy*:
+  - Like a house number that distinguishes each house on the same street.
