@@ -1,0 +1,41 @@
+#+title: Level3
+
+- all interfaces neet to belong to the same network, therefore they get the same subnet mask
+- the subnet mask is given by 255.255.255.128 = /25
+- furthermore we have one IP address given = 104.198.71.125
+  - with the given Subnet mask we infer
+  - since the subnet mask, corresponds to 2 subnets, and since deduce the Network Part 104.198.71.0
+  - therefore the other two need to be in 104.198.71.1 - 104.198.71.126 (because of broadcast and network address)
+
+
+|            |               Decimal | Binary                              |
+|------------+-----------------------+-------------------------------------|
+| A1         |                       |                                     |
+|            |                       |                                     |
+| Mask       | 255.255.255.128 (/25) | 11111111 11111111 11111111 10000000 |
+| HostIp     |        =104.198.71.125= | 01101000 11000110 01000111 01111101 |
+| SubnetAddr |          104.198.71.0 | 01101000 11000110 01000111 00000000 |
+|------------+-----------------------+-------------------------------------|
+| B1         |                       |                                     |
+|            |                       |                                     |
+| Mask       | 255.255.255.128 (/25) | 11111111 11111111 11111111 10000000 |
+| HostIp     |        104.198.71.123 | 01101000 11000110 01000111 01111011 |
+| SubnetAddr |          104.198.71.0 | 01101000 11000110 01000111 00000000 |
+|------------+-----------------------+-------------------------------------|
+| C1         |                       |                                     |
+|            |                       |                                     |
+| Mask       | =255.255.255.128 (/25)= | 11111111 11111111 11111111 10000000 |
+| HostIp     |        104.198.71.124 | 01101000 11000110 01000111 01111100 |
+| SubnetAddr |          104.198.71.0 | 01101000 11000110 01000111 00000000 |
+
+- everything in blue was given
+- Mask is given through interface C1
+  - so everyone of the interfaces needs to apply the same subnet mask
+- IP address of A1 tells us which
+  - applying the subnetMask on IP address of A1, we get the network address, which tells us which IP address we need to give to C1 and B1 so that they have the same networkaddress
+
+* Host A communicate with Host B
+- host A has 1 interface with a certain subnetMask
+- wants to sent a packet to B
+- A calculates networkAddress of IP of B with the subnetMasks that it knows of (only 1)
+  - if this networkAddress doesn't correspond to the networkAddress of the interface that it A is connected to, then A doesn't know where to send it

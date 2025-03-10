@@ -8,13 +8,20 @@
 
 Broadcast and network addresses serve specific purposes within a subnet:
 
-1. *Network Address*:
+1. *Network Address*: (all host bits to zero)
    - The network address identifies a specific subnet within a larger network.
    - It is derived by setting all the host bits in the address to zero.
    - It represents the starting address of a subnet and cannot be assigned to any device.
-   - Example: In the subnet 192.168.1.0/24, the network address is 192.168.1.0.
+   - Example: In the subnet 192.168.1.0/27, the network address is 192.168.1.0.
+     - IP address:
+       - 11111111 11111111 11111111 00000000
+       - 11111111 11111111 11111111 00100000
+       - 11111111 11111111 11111111 01000000
+       - 11111111 11111111 11111111 01100000
+       - ...
+       - 11111111 11111111 11111111 11100000
 
-2. *Broadcast Address*:
+2. *Broadcast Address*: (all the host bits to 1)
    - The broadcast address is used to send data to all devices within a subnet.
    - It is derived by setting all the host bits in the address to one.
    - Network devices use this address to communicate with all hosts in the subnet simultaneously.

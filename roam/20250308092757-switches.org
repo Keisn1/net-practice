@@ -1,0 +1,25 @@
+:PROPERTIES:
+:ID:       3ba5384b-fd1b-4d24-abd6-d150df31aba6
+:END:
+#+title: Switches
+#+date: [2025-03-08 Sat 09:27]
+#+startup: overview
+
+
+- A network switch is a device that connects multiple devices on a local area network (LAN) and uses MAC address information to forward data to the correct destination
+
+1. *Forwarding Data*: Switches receive incoming data packets and forward them to the appropriate device within the same network. They do this by using MAC addresses to determine the device's physical location on the network
+
+2. *MAC Address Table*: Switches maintain a MAC address table, which maps each MAC address to the corresponding physical port on the switch. This table allows switches to know which port to use when forwarding data to specific devices
+
+3. *Layer 2 Networking*: Most switches operate at Layer 2 of the OSI model (Data Link Layer), making forwarding decisions based on MAC addresses rather than IP addresses
+
+4. *Reducing Network Collisions*: Unlike hubs, which broadcast incoming data to all connected devices, switches reduce network collisions by sending data only to the device that needs it. This leads to more efficient use of network bandwidth.
+
+5. *Full Duplex Communication*: Switches support full-duplex communication, allowing devices to send and receive data simultaneously, which improves overall network performance
+
+6. *VLAN Support*: Some advanced switches support Virtual LANs (VLANs), allowing network administrators to segment larger networks into smaller, isolated networks for improved security and traffic management
+
+7. *Enhanced Features in Managed Switches*: Managed switches offer advanced features like traffic prioritization, Quality of Service (QoS), network monitoring, and the ability to configure and manage network settings
+
+By connecting devices and directing data efficiently within a LAN, switches play a crucial role in modern networking by optimizing performance and enabling seamless communication between devices.

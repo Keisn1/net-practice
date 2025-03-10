@@ -1,0 +1,13 @@
+:PROPERTIES:
+:ID:       4c5f6a24-10ba-4bec-8463-b10b9f61f403
+:END:
+#+title: routing tables
+#+date: [2025-03-08 Sat 10:14]
+#+startup: overview
+
+* Purpose
+- Routing tables are used to store and manage path information to various network destinations
+- allow routers to make intelligent decisions about which direction (interface) a data packet should be forwarded
+* Contents
+- *Destination Network*: The IP address of the destination network
+- *Subnet Mask*: Used to define the scope of the destination network

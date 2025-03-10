@@ -1,0 +1,39 @@
+:PROPERTIES:
+:ID:       db001e26-290a-4098-92ed-5c67db1ae3e1
+:END:
+#+title: Routers
+#+date: [2025-03-08 Sat 09:31]
+#+startup: overview
+
+"Routing"
+- determine which path packets should take to reach their destination
+
+- A router is a network device that forwards data packets between different networks
+- It operates primarily at *Layer 3 of the OSI model*, which is the Network Layer
+- a Router connects different networks
+  - it is important that the different networks (subnets) don't overlap
+* Characteristics
+** Routing Data Between Networks
+- Routers determine the best path for data to travel from one network to another
+- Using routing tables and protocols, a router decides how to forward packets to their destination, effectively connecting different subnets or networks
+** Network Layer Operations
+- Working at the Network Layer, routers make forwarding decisions based on IP addresses rather than MAC addresses
+- enables them to connect different IP networks and direct traffic based on network topologies
+
+** Maintaining Routing Tables
+- Routers maintain routing tables that store information about network paths.
+- These tables are updated dynamically through routing protocols like OSPF (Open Shortest Path First), EIGRP (Enhanced Interior Gateway Routing Protocol), and BGP (Border Gateway Protocol)
+
+** Multiple Interfaces
+- Routers typically have multiple interfaces because each interface connects to a different network.
+  - For instance, a typical home router might have one interface connected to the internet (WAN) and multiple interfaces for local network connections (LAN)
+- Each interface can belong to a different IP subnet, allowing the router to route traffic between these subnets
+- This is essential for providing connectivity between various network segments and managing traffic efficiently
+
+** Network Address Translation (NAT)
+- Routers often perform NAT, which allows multiple devices on a local network to access the internet using a single public IP address.
+- This is commonly used in home and small business networks.
+
+** Traffic Management and Security
+- Routers can also perform traffic management functions, such as filtering traffic with access control lists (ACLs) and implementing quality of service (QoS) policies to prioritize certain types of traffic.
+- They often include firewalls for enhancing network security by blocking unauthorized access and monitoring incoming and outgoing traffic.

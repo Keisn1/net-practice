@@ -5,10 +5,10 @@
 #+date: [2025-02-22 Sat 12:33]
 #+startup: overview
 
-A unique identifier assigned to each device connected to a network.
-two main versions:
-- *IPv4*: Uses a 32-bit address format, typically represented as four decimal numbers separated by dots (e.g., 192.168.1.1).
-- *IPv6*: Uses a 128-bit address format, represented as eight groups of hexadecimal numbers separated by colons (e.g., 2001:0db8:85a3:0000:0000:8a2e:0370:7334).
+A unique identifier assigned to each device connected to a network
+- two main versions:
+  - *IPv4*: Uses a 32-bit address format, typically represented as four decimal numbers separated by dots (e.g., 192.168.1.1).
+  - *IPv6*: Uses a 128-bit address format, represented as eight groups of hexadecimal numbers separated by colons (e.g., 2001:0db8:85a3:0000:0000:8a2e:0370:7334).
 
 - An IP address consists of four octets (for IPv4).
 - Octets are separated by periods (e.g., 192.168.0.1).

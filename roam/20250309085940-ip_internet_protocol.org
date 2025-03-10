@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       6dd9f200-6883-4318-aebb-7d8c16948ae4
+:END:
+#+title: IP internet protocol
+#+date: [2025-03-09 Sun 08:59]
+#+startup: overview
+
+- set of rules governing transmission of data between computers
+- most known for [[id:501f24ff-9d35-41f8-911b-832c89114c51][Addressing]] and [[id:db001e26-290a-4098-92ed-5c67db1ae3e1][Routing]]
+- operates on network layer of OSI-Model

@@ -1,0 +1,60 @@
+#+title: Level1
+
+
+- 2 connected computers
+
+- before IP comes into play, the 2 computers are able to communicate on the Link Layer via MAC addresses
+  - so first it is possible that data can be send from one device to the other because of the Link Layer
+  - the goal of IP is to route data to the "right" network (MAC addresses route data within a single network)
+
+- to route efficiently to the right network, the IP uses an address scheme where an address has a network part and a host part
+  - the network part is used for routing
+    - so if a device
+
+  - the host part is used to identify a specific host
+
+- interfaces
+  - boundary between a network and a device
+  - detailed information about how that computer is configured to connect to a network
+  - *IP Address: 104.198.71.125*
+    - This is the unique address assigned to interface A1 on host A
+    - It identifies the host on a network
+  - *Subnet Mask: /30*
+    -
+
+The requirement for devices to be in the same subnet to communicate directly stems from the way IP networks are structured and how they use subnets to logically divide network segments. Here's why:
+
+1. *Address Identification:*
+   - The IP address and subnet mask together determine the network and host portions of an IP address.
+   - Devices use this information to identify whether another device is on the same local network (subnet) or if the data needs to be routed outside the network.
+
+2. *Broadcast Domains:*
+   - A subnet represents a single broadcast domain. This means any device within this domain can "hear" broadcasts sent by other devices in the same subnet.
+   - For direct communication, devices resolve each other's IP addresses to MAC addresses using the Address Resolution Protocol (ARP). ARP requests are broadcasted on the local network, so they only reach devices within the same subnet.
+
+3. *Direct Communication:*
+   - Devices on the same subnet can communicate directly using their MAC addresses once ARP resolution has occurred. There's no need for a router or additional networking gear to mediate communication.
+   - This is efficient for local communication because it reduces overhead and network latency compared to routed traffic.
+
+4. *Routing Requirement:*
+   - If two devices are on different subnets, they cannot resolve each other's MAC addresses because ARP broadcasts don’t cross routers.
+   - They need a router to communicate, which acts as an intermediary to route packets between different subnets.
+
+5. *Network Organization:*
+   - Subnets help organize network traffic and increase security and manageability by limiting broadcast traffic to a subset of network devices and logically segmenting different parts of a network.
+
+In summary, devices need to be in the same subnet to leverage direct communication capabilities without involving routers or additional routing logic. This aligns with how IP networking is designed to operate within local network segments. If you have further questions, feel free to ask!
+
+A switch is connecting interfaces together
+
+IP of A: 192.168.53.1
+IP of A: 192.168.53.222
+APPLY Subnet of B on A: /27 -> 192.168.53.0/27
+
+APPLY Subnet of B on B: /27 -> 192.168.53.192/27
+B has no interface with Network address 192.168.53.0/27
+First: B needs to send a packet to a connected interface, and it sends the packet to the interface with the correct network address
+- the only connected interface has network address 192.168.53.192
+- but the network address of the destination IP is 192.168.53.0
+
+Interface of A: 192.168.53.1
